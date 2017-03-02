@@ -1,9 +1,5 @@
 package week_1.Abstraction_Interfaces.Books_Task;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 /**
  * Created by Алексей on 02.03.2017.
  */
@@ -19,7 +15,7 @@ public abstract class Book implements Edition{
         this.book_Type = book_Type == null ? Books_Type.Undefined : book_Type;
     }
 
-    @Override
+    /*@Override
     public void add_Book(){
 
     }
@@ -36,5 +32,10 @@ public abstract class Book implements Edition{
     public void delete_All_Books(int year){
 
     }
+
+    @Override
+    public String get_Book(){
+        return "";
+    }*/
 
 }
