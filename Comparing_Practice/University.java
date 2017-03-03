@@ -24,7 +24,13 @@ public class University implements Entry {
         this.groups.add(group);
         return true;
     }
-
+    @Override
+    public void sort_By_Age(){
+        Iterator<Group> iter = this.groups.iterator();
+        while (iter.hasNext()){
+            iter.next().sort_By_Age();
+        }
+    }
     @Override
     public boolean add_Student(Student new_Student){
         Scanner in = new Scanner(System.in);

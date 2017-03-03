@@ -6,6 +6,7 @@ package week_1.Comparing_Practice;
 public interface Entry {
     boolean add_Group(Group group);
     boolean add_Student(Student new_Student);
+    void sort_By_Age();
 
     void show_List();
 }

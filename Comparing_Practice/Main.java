@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args){
         University univer = new University();
         Scanner in = new Scanner(System.in);
-        String menu = "1-Add Student(name and age)\n2-Show Final List\n3-Exit";
+        String menu = "1-Add Student(name and age)\n2-Show Final List\n3-Sort By Age\n4-Exit";
 
         do {
             System.out.println(menu);
@@ -22,7 +22,11 @@ public class Main {
                     univer.show_List();
                     break;
                 case 3:
+                    univer.sort_By_Age();
+                    break;
+                case 4:
                     System.exit(0);
+                    break;
             }
         }while (true);
     }

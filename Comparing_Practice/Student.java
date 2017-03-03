@@ -3,7 +3,7 @@ package week_1.Comparing_Practice;
 /**
  * Created by Алексей on 03.03.2017.
  */
-public class Student {
+public class Student implements Comparable<Student>{
     String name;
     int age;
 
@@ -25,5 +25,13 @@ public class Student {
             return false;
 
         return true;
+    }
+    @Override
+    public int compareTo(Student student){
+        if (this.age < student.age)
+            return -1;
+        if (this.age > student.age)
+            return 1;
+        return 0;
     }
 }

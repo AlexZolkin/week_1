@@ -1,6 +1,9 @@
 package week_1.Comparing_Practice;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -25,6 +28,10 @@ public class Group extends University {
         }
         this.group.add(new_Student);
         return true;
+    }
+    @Override
+    public void sort_By_Age(){
+        Collections.sort(group);
     }
     @Override
     public boolean equals(Object obj){
