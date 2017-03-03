@@ -27,6 +27,7 @@ public class ArrayList<T>{
                 array[i] = array[i-1];
         }
         array[index] = item;
+        last_item++;
     }
     public T get(int index){
         return (T)array[index];
