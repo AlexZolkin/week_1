@@ -36,7 +36,7 @@ public class Group extends University {
         if(this.getClass() != obj.getClass())
             return false;
         Group new_Group = (Group) obj;
-        if(!(((Group) obj).group_name.equals(this.group_name))
+        if(!(((Group) obj).group_name.equals(this.group_name)))
             return false;
 
         return true;
