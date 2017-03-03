@@ -21,7 +21,7 @@ public class Student {
         if(this.getClass() != obj.getClass())
             return false;
         Student new_Student = (Student) obj;
-        if((new_Student.age != this.age) || (!new_Student.name.equals(this.name)))
+        if((new_Student.age != this.age) && (!new_Student.name.equals(this.name)))
             return false;
 
         return true;

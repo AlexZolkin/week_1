@@ -30,9 +30,26 @@ public class University implements Entry {
     @Override
     public boolean add_Student(Student new_Student){
         Scanner in = new Scanner(System.in);
-        if(this.groups.get(this.groups.size() - 1).group.size() > 5)
-            return add_Group(new Group(in.nextLine()));
+        if(this.groups.size() != 0){
+            if(this.groups.get(this.groups.size() - 1).group.size() > 1){
+                System.out.println("Enter Group Name(different to others):");
+                add_Group(new Group(in.next()));
+                return this.groups.get(this.groups.size() - 1).add_Student(new_Student);
+            }
+            return this.groups.get(this.groups.size() - 1).add_Student(new_Student);
+        }
+        System.out.println("Enter Group Name(different to others):");
+        add_Group(new Group(in.next()));
         return this.groups.get(this.groups.size() - 1).add_Student(new_Student);
-
+    }
+    @Override
+    public void show_List(){
+        Iterator<Group> iterator = this.groups.iterator();
+        while (iterator.hasNext()){
+            Group group = iterator.next();
+            System.out.println("\t" + group.group_name);
+            group.show_List();
+            System.out.println();
+        }
     }
 }

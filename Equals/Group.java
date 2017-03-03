@@ -41,4 +41,16 @@ public class Group extends University {
 
         return true;
     }
+    @Override
+    public void show_List(){
+        Iterator<Student> iter = this.group.iterator();
+        if(!iter.hasNext()) {
+            System.out.println("Empty");
+            return;
+        }
+        while (iter.hasNext()){
+            Student student = iter.next();
+            System.out.println(student.name + " : " + student.age);
+        }
+    }
 }
