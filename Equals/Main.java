@@ -5,6 +5,12 @@ import java.util.Scanner;
 /**
  * Created by Алексей on 03.03.2017.
  */
+/*
+* main function realisation
+* simple menu is used
+* adding student with name and age typed
+* showing current student list to the user
+* */
 public class Main {
     public static void main(String[] args){
         University univer = new University();

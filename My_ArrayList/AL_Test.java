@@ -3,6 +3,22 @@ package week_1.My_ArrayList;
 /**
  * Created by Алексей on 03.03.2017.
  */
+/*
+* Class for tests providing
+* calls methods of custom ArrayList
+* Integers collection and String collection is used
+* all the tests provided in constructor:
+* creating empty collection
+* initialising
+* filling in cycle, number of starting object is bigger then default number(10 to 8)
+* adding objects in the accurate place in collection
+* getter test
+* removing objects on accurate indexes
+* removing with matching test, false and true tries
+* comparing sizes of both collections
+* testing, do collections contains objects inserted in upper tests
+* clearing both collections
+* */
 public class AL_Test {
     ArrayList<Integer> array_int;
     ArrayList<String> array_string;

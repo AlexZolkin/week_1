@@ -11,8 +11,12 @@ import java.util.Scanner;
  * Created by Алексей on 02.03.2017.
  */
 public class Control{
-
-
+    /*
+    * main function
+    * menu is used
+    * delete function isn't possible to use
+    * both book types cen be created
+    * */
     public static void main(String[] args)
     {
         String menu = "1 - new Catalog\n2 - new Encyclopedia\n3 - show library\n0 - Exit";
@@ -38,6 +42,11 @@ public class Control{
             }
         }while (k != 0);
     }
+    /*
+    * creates new book of type needed
+    * adds it into global collection
+    * simply creates new book with static parameters
+    * */
     private static void add_Book(Books_Type book) {
         switch (book.toString()) {
             case "Catalog":
@@ -48,6 +57,10 @@ public class Control{
                 break;
         }
     }
+    /*
+    * shows global book collection
+    * in a console
+    * */
     private static void show_Lib(){
         String result = "";
         Iterator<Book> iter = Edition.books.iterator();

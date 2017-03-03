@@ -7,15 +7,26 @@ import java.util.List;
 /**
  * Created by Алексей on 03.03.2017.
  */
+/*
+* Collects students in named groups
+* have name and students collection as properties
+* */
 public class Group extends University {
     String group_name;
     ArrayList<Student> group;
-
+    /*
+    * constructor
+    * creates new empty, named group
+    * */
     public Group(String group_name) {
         group = new ArrayList<Student>();
         this.group_name = group_name;
     }
-
+    /*
+    * Interface realisation
+    * adds new student into current group
+    * checks, if there is the same student had been added already
+    * */
     @Override
     public boolean add_Student(Student new_Student){
         Iterator<Student> iterator = this.group.iterator();
@@ -27,6 +38,12 @@ public class Group extends University {
         this.group.add(new_Student);
         return true;
     }
+    /*
+    * Basic function overriding
+    * accurate test for
+    * equality with current group
+    * is used for not dding groups with the same names
+    * */
     @Override
     public boolean equals(Object obj){
         if(this == obj)
@@ -41,6 +58,11 @@ public class Group extends University {
 
         return true;
     }
+    /*
+    * Interface realisation
+    * prints student list in console
+    * if empty, prints Empty
+    * */
     @Override
     public void show_List(){
         Iterator<Student> iter = this.group.iterator();

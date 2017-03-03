@@ -7,13 +7,22 @@ import java.util.Scanner;
 /**
  * Created by Алексей on 03.03.2017.
  */
+/*
+* used for creating a new university - groups collection
+* have groups collection as property
+* constructor initialises empty groups collection
+* */
 public class University implements Entry {
     ArrayList<Group> groups;
 
     public University(){
         groups = new ArrayList<Group>();
     }
-
+    /*
+    * Interface realisation
+    * adding new named group into collection
+    * checking for names matching
+    * */
     @Override
     public boolean add_Group(Group group){
         Iterator<Group> iterator = this.groups.iterator();
@@ -24,13 +33,13 @@ public class University implements Entry {
         this.groups.add(group);
         return true;
     }
-    @Override
-    public void sort_By_Age(){
-        Iterator<Group> iter = this.groups.iterator();
-        while (iter.hasNext()){
-            iter.next().sort_By_Age();
-        }
-    }
+    /*
+    * Interface realisation
+    * adding new student
+    * there can be up to 2 students in group
+    * after fulfilling current group, creating new
+    * checking for names matching
+    * */
     @Override
     public boolean add_Student(Student new_Student){
         Scanner in = new Scanner(System.in);
@@ -46,6 +55,11 @@ public class University implements Entry {
         add_Group(new Group(in.next()));
         return this.groups.get(this.groups.size() - 1).add_Student(new_Student);
     }
+    /*
+    * Interface realisation
+    * prints group names
+    * calling same function, realised in every group
+    * */
     @Override
     public void show_List(){
         Iterator<Group> iterator = this.groups.iterator();
@@ -54,6 +68,18 @@ public class University implements Entry {
             System.out.println("\t" + group.group_name);
             group.show_List();
             System.out.println();
+        }
+    }
+    /*
+    * Interface realisation
+    * Sorting students in every group by age
+    * simply calling sorting function for every group
+    * */
+    @Override
+    public void sort_By_Age(){
+        Iterator<Group> iter = this.groups.iterator();
+        while (iter.hasNext()){
+            iter.next().sort_By_Age();
         }
     }
 }
