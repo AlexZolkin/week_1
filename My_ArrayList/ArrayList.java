@@ -58,7 +58,7 @@ public class ArrayList<T>{
     * cause last_item is index, so it counts from 0
     * */
     public int size(){
-        return last_item+1;
+        return last_item;
     }
     /*
     * clears collection
