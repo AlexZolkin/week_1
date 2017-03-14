@@ -23,13 +23,13 @@ public class Main {
             int k = in.nextInt();
             switch (k){
                 case 1:
-                    univer.add_Student(new Student(in.next(),in.nextInt()));
+                    univer.addStudent(new Student(in.next(),in.nextInt()));
                     break;
                 case 2:
-                    univer.show_List();
+                    univer.showList();
                     break;
                 case 3:
-                    univer.sort_By_Age();
+                    univer.sortByAge();
                     break;
                 case 4:
                     System.exit(0);

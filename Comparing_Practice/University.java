@@ -24,7 +24,7 @@ public class University implements Entry {
     * checking for names matching
     * */
     @Override
-    public boolean add_Group(Group group){
+    public boolean addGroup(Group group){
         Iterator<Group> iterator = this.groups.iterator();
         while (iterator.hasNext()){
             if(iterator.next().equals(group))
@@ -41,19 +41,19 @@ public class University implements Entry {
     * checking for names matching
     * */
     @Override
-    public boolean add_Student(Student new_Student){
+    public boolean addStudent(Student new_Student){
         Scanner in = new Scanner(System.in);
         if(this.groups.size() != 0){
             if(this.groups.get(this.groups.size() - 1).group.size() > 1){
                 System.out.println("Enter Group Name(different to others):");
-                add_Group(new Group(in.next()));
-                return this.groups.get(this.groups.size() - 1).add_Student(new_Student);
+                addGroup(new Group(in.next()));
+                return this.groups.get(this.groups.size() - 1).addStudent(new_Student);
             }
-            return this.groups.get(this.groups.size() - 1).add_Student(new_Student);
+            return this.groups.get(this.groups.size() - 1).addStudent(new_Student);
         }
         System.out.println("Enter Group Name(different to others):");
-        add_Group(new Group(in.next()));
-        return this.groups.get(this.groups.size() - 1).add_Student(new_Student);
+        addGroup(new Group(in.next()));
+        return this.groups.get(this.groups.size() - 1).addStudent(new_Student);
     }
     /*
     * Interface realisation
@@ -61,12 +61,12 @@ public class University implements Entry {
     * calling same function, realised in every group
     * */
     @Override
-    public void show_List(){
+    public void showList(){
         Iterator<Group> iterator = this.groups.iterator();
         while (iterator.hasNext()){
             Group group = iterator.next();
-            System.out.println("\t" + group.group_name);
-            group.show_List();
+            System.out.println("\t" + group.groupName);
+            group.showList();
             System.out.println();
         }
     }
@@ -76,10 +76,10 @@ public class University implements Entry {
     * simply calling sorting function for every group
     * */
     @Override
-    public void sort_By_Age(){
+    public void sortByAge(){
         Iterator<Group> iter = this.groups.iterator();
         while (iter.hasNext()){
-            iter.next().sort_By_Age();
+            iter.next().sortByAge();
         }
     }
 }

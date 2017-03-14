@@ -32,8 +32,8 @@ public class Student implements Comparable<Student>{
             return false;
         if(this.getClass() != obj.getClass())
             return false;
-        Student new_Student = (Student) obj;
-        if((new_Student.age != this.age) && (!new_Student.name.equals(this.name)))
+        Student newStudent = (Student) obj;
+        if((newStudent.age != this.age) && (!newStudent.name.equals(this.name)))
             return false;
 
         return true;

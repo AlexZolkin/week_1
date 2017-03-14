@@ -1,8 +1,6 @@
 package week_1.Comparing_Practice;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -14,15 +12,15 @@ import java.util.Iterator;
 * have name and students collection as properties
 * */
 public class Group extends University {
-    String group_name;
+    String groupName;
     ArrayList<Student> group;
     /*
     * constructor
     * creates new empty, named group
     * */
-    public Group(String group_name) {
+    public Group(String groupName) {
         group = new ArrayList<Student>();
-        this.group_name = group_name;
+        this.groupName = groupName;
     }
     /*
     * Interface realisation
@@ -30,14 +28,14 @@ public class Group extends University {
     * checks, if there is the same student had been added already
     * */
     @Override
-    public boolean add_Student(Student new_Student){
+    public boolean addStudent(Student newStudent){
         Iterator<Student> iterator = this.group.iterator();
 
         while (iterator.hasNext()) {
-            if(iterator.next().equals(new_Student))
+            if(iterator.next().equals(newStudent))
                 return false;
         }
-        this.group.add(new_Student);
+        this.group.add(newStudent);
         return true;
     }
     /*
@@ -46,7 +44,7 @@ public class Group extends University {
     * custom compareTo realisation is used
     * */
     @Override
-    public void sort_By_Age(){
+    public void sortByAge(){
         Collections.sort(group);
     }
     /*
@@ -63,8 +61,8 @@ public class Group extends University {
             return false;
         if(this.getClass() != obj.getClass())
             return false;
-        Group new_Group = (Group) obj;
-        if(!(((Group) obj).group_name.equals(this.group_name)))
+        Group newGroup = (Group) obj;
+        if(!(((Group) obj).groupName.equals(this.groupName)))
             return false;
 
         return true;
@@ -75,7 +73,7 @@ public class Group extends University {
     * if empty, prints Empty
     * */
     @Override
-    public void show_List(){
+    public void showList(){
         Iterator<Student> iter = this.group.iterator();
         if(!iter.hasNext()) {
             System.out.println("Empty");
