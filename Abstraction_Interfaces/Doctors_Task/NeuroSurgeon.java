@@ -7,8 +7,8 @@ package week_1.Abstraction_Interfaces.Doctors_Task;
 * Surgeon child class
 * uses super for initialising property if base class
 * */
-public class Neuro_Surgeon extends Surgeon{
-    public Neuro_Surgeon(String alert){
+public class NeuroSurgeon extends Surgeon{
+    public NeuroSurgeon(String alert){
         super(alert);
     }
     /*
