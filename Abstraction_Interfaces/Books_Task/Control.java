@@ -1,9 +1,5 @@
 package week_1.Abstraction_Interfaces.Books_Task;
 
-import org.omg.CORBA.Environment;
-import week_1.Abstraction_Interfaces.Books_Task.*;
-
-import java.io.Console;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -31,10 +27,10 @@ public class Control{
                     System.exit(0);
                     break;
                 case 1:
-                    add_Book(Books_Type.Catalog);
+                    add_Book(BooksType.Catalog);
                     break;
                 case 2:
-                    add_Book(Books_Type.Encyclopedia);
+                    add_Book(BooksType.Encyclopedia);
                     break;
                 case 3:
                     show_Lib();
@@ -47,13 +43,13 @@ public class Control{
     * adds it into global collection
     * simply creates new book with static parameters
     * */
-    private static void add_Book(Books_Type book) {
+    private static void add_Book(BooksType book) {
         switch (book.toString()) {
             case "Catalog":
-                new Catalog("Book - C", "Author", 1).add_Book();
+                new Catalog("Book - C", "Author", 1).addBook();
                 break;
             case "Encyclopedia":
-                new Encyclopedia("Book - E", "Author", 1).add_Book();
+                new Encyclopedia("Book - E", "Author", 1).addBook();
                 break;
         }
     }
@@ -66,7 +62,7 @@ public class Control{
         Iterator<Book> iter = Edition.books.iterator();
         while (iter.hasNext())
         {
-            result += iter.next().get_Book();
+            result += iter.next().getBook();
             result += "\n";
         }
         System.out.println(result);

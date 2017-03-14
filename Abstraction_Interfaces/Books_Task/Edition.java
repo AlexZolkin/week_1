@@ -13,11 +13,11 @@ import java.util.ArrayList;
 public interface Edition {
     ArrayList<Book> books = new ArrayList<Book>();
 
-    void add_Book();
-    void add_Book(String name, String author, int year);
+    void addBook();
+    void addBook(String name, String author, int year);
 
-    void delete_Book();
-    void delete_All_Books(int year);
+    void deleteBook();
+    void deleteAllBooks(int year);
 
-    String get_Book();
+    String getBook();
 }

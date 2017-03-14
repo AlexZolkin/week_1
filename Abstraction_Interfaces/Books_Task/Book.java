@@ -13,16 +13,16 @@ public abstract class Book implements Edition{
     * */
     protected String name, author;
     protected  int year;
-    protected Books_Type book_Type;
+    protected BooksType bookType;
     /*
     * Constructor for creating every single book
     * All the are equivalent with Properties up here
     * Ternary operators used for checking parameters, are they suitable or not
     * */
-    public Book(String name, String author, int year, Books_Type book_Type){
+    public Book(String name, String author, int year, BooksType bookType){
         this.name = name.isEmpty() ? "No Name" : name;
         this.author = author.isEmpty() ? "No Author" : author;
         this.year = year <= 0 ? 0 : year;
-        this.book_Type = book_Type == null ? Books_Type.Undefined : book_Type;
+        this.bookType = bookType == null ? BooksType.Undefined : bookType;
     }
 }
