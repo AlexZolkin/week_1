@@ -1,18 +1,12 @@
 package week_1.My_ArrayList;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
-import java.util.*;
-import java.util.function.UnaryOperator;
-
-
 /**
  * Created by Алексей on 03.03.2017.
  */
 /*
 * Custom ArrayList realisation
 * INIT_SIZE - starting size of array
-* last_item - index of last element
+* lastItem - index of last element
 * CUT_RATE - used for resizing, if number of items CUT_RATE times less, then array size
 * array - static array of Object items
 * <T> - template of collection items type, can be replaced with any Object based type
@@ -20,31 +14,31 @@ import java.util.function.UnaryOperator;
 * */
 public class ArrayList<T>{
     private final int INIT_SIZE = 8;
-    private int last_item = 0;
-    private int CUT_RATE = 2;
+    private int lastItem = 0;
+    private final int CUT_RATE = 2;
     private Object[] array = new Object[INIT_SIZE];
     /*
     * adding new item to the end of the array
     * */
     public void add(T item){
-        add(last_item, item);
+        add(lastItem, item);
     }
     /*
     * adding item in index position
     * all elements to the right has to be shifted
-    * last_item index increases
+    * lastItem index increases
     * array doubles it's length, if end reached
     * */
     public void add(int index,T item){
-        if(index > last_item)
+        if(index > lastItem)
             return;
-        if(last_item == array.length - 1)
+        if(lastItem == array.length - 1)
             resize(array.length * 2);
-        for(int i = last_item - 1;i>index;i--){
+        for(int i = lastItem - 1;i>index;i--){
                 array[i] = array[i-1];
         }
         array[index] = item;
-        last_item++;
+        lastItem++;
     }
     /*
     * getter
@@ -54,11 +48,11 @@ public class ArrayList<T>{
         return (T)array[index];
     }
     /*
-    * returns last_item + 1,
-    * cause last_item is index, so it counts from 0
+    * returns lastItem + 1,
+    * cause lastItem is index, so it counts from 0
     * */
     public int size(){
-        return last_item;
+        return lastItem;
     }
     /*
     * clears collection
@@ -81,28 +75,33 @@ public class ArrayList<T>{
     * left shift is also performed
     * */
     public void remove(int index, T item){
-        if(index > last_item)
+        if(index > lastItem)
             return;
         if(equals((T)array[index],item)){
-            for(int i=index;i<last_item;i++){
+            for(int i=index;i<lastItem;i++){
                 array[i] = array[i+1];
             }
-            last_item--;
-            array[last_item] = null;
+            lastItem--;
+            array[lastItem] = null;
         }
-        if(array.length > INIT_SIZE && last_item < array.length / CUT_RATE)
+        if(array.length > INIT_SIZE && lastItem < array.length / CUT_RATE)
             resize(array.length / 2);
     }
     /*
     * simply replaces needed element of an array with given one
     * */
     public void set(int index, T item){
-        if(index > last_item)
+        if(index > lastItem)
             return;
         array[index] = item;
     }
+
+    /*
+    * checks
+    * doe's an array contains item given
+    * */
     public boolean contains(T item){
-        for(int i=0;i<last_item;i++){
+        for(int i=0;i<lastItem;i++){
             if(equals((T)array[i],item))
                 return true;
         }
@@ -115,21 +114,21 @@ public class ArrayList<T>{
     * */
     private void resize(int newLength) {
         Object[] newArray = new Object[newLength];
-        System.arraycopy(array, 0, newArray, 0, last_item);
+        System.arraycopy(array, 0, newArray, 0, lastItem);
         array = newArray;
     }
     /*
     * simple function for equality checking
     * address,null,class,hashcode matching test performed
     * */
-    private boolean equals(T item_1, T item_2){
-        if(item_1 == item_2)
+    private boolean equals(T item1, T item2){
+        if(item1 == item2)
             return true;
-        if(item_1 == null || item_2 == null)
+        if(item1 == null || item2 == null)
             return false;
-        if(item_1.getClass() != item_2.getClass())
+        if(item1.getClass() != item2.getClass())
             return false;
-        if(item_1.hashCode() != item_2.hashCode())
+        if(item1.hashCode() != item2.hashCode())
             return false;
         return true;
     }
