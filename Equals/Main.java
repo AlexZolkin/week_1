@@ -22,10 +22,10 @@ public class Main {
             int k = in.nextInt();
             switch (k){
                 case 1:
-                    univer.add_Student(new Student(in.next(),in.nextInt()));
+                    univer.addStudent(new Student(in.next(),in.nextInt()));
                     break;
                 case 2:
-                    univer.show_List();
+                    univer.showList();
                     break;
                 case 3:
                     System.exit(0);

@@ -9,8 +9,8 @@ package week_1.Equals;
 * for showing list of students in console
 * */
 public interface Entry {
-    boolean add_Group(Group group);
-    boolean add_Student(Student new_Student);
+    boolean addGroup(Group group);
+    boolean addStudent(Student new_Student);
 
-    void show_List();
+    void showList();
 }
