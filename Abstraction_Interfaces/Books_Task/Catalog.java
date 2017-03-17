@@ -21,6 +21,10 @@ public class Catalog extends Book {
     * */
     @Override
     public void addBook(){
+        this.name = this.name == null? "No Name: Catalog" : this.name;
+        this.year = this.year < 0? 0 : this.year;
+        this.author = this.author == null? "No Author" : this.author;
+
         books.add(this);
     }
     /*
@@ -30,7 +34,7 @@ public class Catalog extends Book {
     * */
     @Override
     public void addBook(String name, String author, int year){
-        books.add(new Catalog(this.name, this.author, this.year));
+        new Catalog(name, author, year).addBook();
     }
     /*
     * Edition Interface realisation
@@ -49,8 +53,9 @@ public class Catalog extends Book {
         Iterator<Book> iter = books.iterator();
 
         while (iter.hasNext()) {
-            if(iter.next().bookType == bookType && iter.next().year == year)
-                books.remove(iter.next());
+            Book tmp = iter.next();
+            if(tmp.bookType == bookType && tmp.year == year)
+                books.remove(tmp);
         }
     }
     /*

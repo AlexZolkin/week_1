@@ -23,6 +23,10 @@ public class Encyclopedia extends Book {
     * */
     @Override
     public void addBook(){
+        this.name = this.name == null? "No Name: Encyclopedia" : this.name;
+        this.year = this.year < 0? 0 : this.year;
+        this.author = this.author == null? "No Author" : this.author;
+
         books.add(this);
     }
 
@@ -31,7 +35,7 @@ public class Encyclopedia extends Book {
     * */
     @Override
     public void addBook(String name, String author, int year){
-        books.add(new Encyclopedia(this.name, this.author, this.year));
+        new Encyclopedia(name, author, year).addBook();
     }
 
     /*
@@ -50,8 +54,9 @@ public class Encyclopedia extends Book {
         Iterator<Book> iter = books.iterator();
 
         while (iter.hasNext()) {
-            if(iter.next().bookType == bookType && iter.next().year == year)
-                books.remove(iter.next());
+            Book tmp = iter.next();
+            if(tmp.bookType == bookType && tmp.year == year)
+                books.remove(tmp);
         }
     }
 
